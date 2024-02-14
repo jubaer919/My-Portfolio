@@ -1,38 +1,73 @@
+:root {
+  --color-dark-navi: #0a192f;
+  --color-navi: #112240;
+  --color-light-navi: #233554;
+  --color-dark-slate: #8892b0;
+  --color-slate: #a8b2d1;
+  --color-light-slate: #ccd6f6;
+  --color-white: #e6f1ff;
+  --color-nion-green: #64ffda;
+}
+
 .App {
   text-align: center;
+  position: relative;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.hexagon-svg {
+  height: 200px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.hexagon-svg polygon {
+  fill: none;
+  stroke: var(--color-nion-green);
+  stroke-width: 3px;
+  stroke-dasharray: 295;
+  stroke-dashoffset: 295;
+  animation: drawHexagon 1.5s ease-in-out forwards;
+}
+
+@keyframes drawHexagon {
+  0% {
+    stroke-dashoffset: 295;
+  }
+  100% {
+    stroke-dashoffset: 0; 
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.section-isloading {
+  background-color: var(--color-navi);
+  height: 100vh;
+  width: 100%;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  animation: fadeout .5s 5.5s forwards;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@keyframes fadeout {
+  0% {
+    opacity: 1;
   }
-  to {
-    transform: rotate(360deg);
+
+  100% {
+    opacity: 0;
+  }
+}
+
+.text-animation {
+  color: var(--color-nion-green);
+  font-size: 32px;
+  animation: fade-in 0.8s 1.5s backwards;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
   }
 }
